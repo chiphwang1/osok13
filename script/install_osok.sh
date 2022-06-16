@@ -6,7 +6,7 @@ export OS=$(uname | awk '{print tolower($0)}')
 export KUBECONFIG=/tmp/kubeconfig
 
 # Download Binary
-export OPERATOR_SDK_DL_URL=https://github.com/operator-framework/operator-sdk/releases/download/v1.18.0
+export OPERATOR_SDK_DL_URL=https://github.com/operator-framework/operator-sdk/releases/download/v1.22.0
 curl -LO ${OPERATOR_SDK_DL_URL}/operator-sdk_${OS}_${ARCH}
 
 # Import the operator-sdk release GPG key from keyserver.ubuntu.com
@@ -36,5 +36,5 @@ chmod +x operator-sdk_${OS}_${ARCH} && mv operator-sdk_${OS}_${ARCH} ./operator-
 kubectl create ns oci-service-operator-system 
 
 # install OSOK Operator
-./operator-sdk run bundle iad.ocir.io/oracle/oci-service-operator-bundle:1.1.1 -n oci-service-operator-system 
+./operator-sdk run bundle iad.ocir.io/oracle/oci-service-operator-bundle:1.1.1 -n oci-service-operator-system --timeout duration 10m0s
 
