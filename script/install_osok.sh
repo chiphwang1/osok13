@@ -39,5 +39,5 @@ kubectl create ns oci-service-operator-system
 docker pull iad.ocir.io/oracle/oci-service-operator-bundle:1.1.1
 
 # install OSOK Operator
-./operator-sdk run bundle iad.ocir.io/oracle/oci-service-operator-bundle:1.1.1 -n oci-service-operator-system --timeout 5m
+./operator-sdk run bundle iad.ocir.io/oracle/oci-service-operator-bundle:1.1.1 -n oci-service-operator-system --timeout 10m
 
